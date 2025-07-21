@@ -678,6 +678,15 @@ class MoodTracker {
     }
   }
 
+  enableTouchScrolling() {
+    document.addEventListener(
+      "touchmove",
+      function (e) {
+        // Allow all touch moves (don't prevent default)
+      },
+      { passive: true }
+    );
+  }
   // Initialisation de l'application
   init() {
     this.setupEventListeners();
@@ -686,6 +695,7 @@ class MoodTracker {
     this.createMoodChart();
     this.createParticles();
     this.startAnimations();
+    this.enableTouchScrolling();
   }
 
   // Configuration des écouteurs d'événements
@@ -1118,6 +1128,16 @@ class MoodTracker {
 
       calendar.appendChild(dayElement);
     }
+  }
+
+  enableTouchScrolling() {
+    document.addEventListener(
+      "touchmove",
+      function (e) {
+        // Allow all touch moves (don't prevent default)
+      },
+      { passive: true }
+    );
   }
 
   // Création du graphique d'humeur
