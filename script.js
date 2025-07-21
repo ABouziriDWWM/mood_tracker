@@ -687,6 +687,22 @@ class MoodTracker {
       { passive: true }
     );
   }
+
+  handleResize() {
+    this.createMoodChart();
+    this.generateCalendar();
+
+    // Ajuster la taille du sélecteur d'humeur sur mobile
+    const moodCircle = document.querySelector(".mood-circle");
+    if (window.innerWidth < 768) {
+      moodCircle.style.width = Math.min(window.innerWidth - 40, 300) + "px";
+      moodCircle.style.height = moodCircle.style.width;
+    } else {
+      moodCircle.style.width = "";
+      moodCircle.style.height = "";
+    }
+  }
+
   // Initialisation de l'application
   init() {
     this.setupEventListeners();
@@ -696,6 +712,10 @@ class MoodTracker {
     this.createParticles();
     this.startAnimations();
     this.enableTouchScrolling();
+
+    // Gérer le redimensionnement
+    window.addEventListener("resize", () => this.handleResize());
+    this.handleResize(); // Appel initial
   }
 
   // Configuration des écouteurs d'événements
