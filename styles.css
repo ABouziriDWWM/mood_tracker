@@ -60,7 +60,6 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-y: auto;
 }
 
 body {
@@ -68,7 +67,7 @@ body {
   background: var(--dark-bg);
   color: var(--text-primary);
   line-height: 1.6;
-  overflow-x: auto;
+  overflow-x: hidden;
   min-height: 100vh;
 }
 
@@ -1655,34 +1654,33 @@ body {
   .floating-shape {
     animation: none !important;
   }
+}
+.mood-option {
+  width: 60px;
+  height: 60px;
+}
 
-  .mood-option {
-    width: 60px;
-    height: 60px;
-  }
+.mood-emoji {
+  font-size: 1.5rem;
+}
 
-  .mood-emoji {
-    font-size: 1.5rem;
-  }
+.stats-grid {
+  grid-template-columns: 1fr;
+}
 
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
+.detailed-stats-grid {
+  grid-template-columns: 1fr;
+}
 
-  .detailed-stats-grid {
-    grid-template-columns: 1fr;
-  }
+.export-content {
+  flex-direction: column;
+  text-align: center;
+}
 
-  .export-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .chart-header,
-  .calendar-header {
-    flex-direction: column;
-    gap: var(--spacing-md);
-  }
+.chart-header,
+.calendar-header {
+  flex-direction: column;
+  gap: var(--spacing-md);
 }
 
 @media (max-width: 480px) {
