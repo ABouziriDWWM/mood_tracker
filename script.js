@@ -903,8 +903,7 @@ class MoodTracker {
       document.querySelector(".current-emoji").textContent = todayEntry.emoji;
       document.querySelector(".current-label").textContent = todayEntry.label;
       document.querySelector(".last-update").textContent =
-        "Votre note actuelle: \t" + todayEntry.note;
-      console.log(todayEntry.note);
+        "Votre note actuelle: \t" + todayEntry.note || "Pas de note";
       document.getElementById("last-update-time").textContent = "Aujourd\\hui";
     } else {
       const config = MOOD_CONFIG[this.currentMood];
