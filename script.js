@@ -724,7 +724,7 @@ class MoodTracker {
     document.querySelectorAll(".mood-option").forEach((option) => {
       option.addEventListener("click", (e) => {
         this.selectMood(option.dataset.mood);
-        this.createRippleEffect(e);
+        // this.createRippleEffect(e);
       });
     });
 
@@ -732,6 +732,7 @@ class MoodTracker {
     const noteInput = document.getElementById("mood-note");
     noteInput.addEventListener("input", (e) => {
       this.currentNote = e.target.value;
+
       this.updateCharCounter();
     });
 
@@ -901,6 +902,9 @@ class MoodTracker {
     if (todayEntry) {
       document.querySelector(".current-emoji").textContent = todayEntry.emoji;
       document.querySelector(".current-label").textContent = todayEntry.label;
+      document.querySelector(".last-update").textContent =
+        "Votre note actuelle: \t" + todayEntry.note;
+      console.log(todayEntry.note);
       document.getElementById("last-update-time").textContent = "Aujourd\\hui";
     } else {
       const config = MOOD_CONFIG[this.currentMood];
