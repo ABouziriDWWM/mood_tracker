@@ -1406,7 +1406,7 @@ class MoodTracker {
                 <div style="display: flex; align-items: center; gap: var(--spacing-sm); width: 60%;">
                     <span style="font-size: 1.2rem;">${emoji}</span>
                     <span style="color: var(--text-primary);">${day},  </span>
-                    <span> Note: ${data.note}</span>
+                    <span> Note: ${data.note || "rien"}</span>
                     
                 </div>
                 <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
