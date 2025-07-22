@@ -1370,13 +1370,14 @@ class MoodTracker {
     ];
     const weekData = Array(7)
       .fill(0)
-      .map(() => ({ total: 0, count: 0 }));
+      .map(() => ({ total: 0, count: 0, note: "" }));
 
     Object.values(this.data.entries).forEach((entry) => {
       const date = new Date(entry.date);
       const dayOfWeek = date.getDay();
       weekData[dayOfWeek].total += entry.value;
       weekData[dayOfWeek].count += 1;
+      weekData[dayOfWeek].note = entry.note;
     });
 
     weekDays.forEach((day, index) => {
@@ -1402,12 +1403,14 @@ class MoodTracker {
       else emoji = "❓";
 
       item.innerHTML = `
-                <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
+                <div style="display: flex; align-items: center; gap: var(--spacing-sm); width: 60%;">
                     <span style="font-size: 1.2rem;">${emoji}</span>
-                    <span style="color: var(--text-primary);">${day}</span>
+                    <span style="color: var(--text-primary);">${day},  </span>
+                    <span> Note: ${data.note}</span>
+                    
                 </div>
                 <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
-                    <span style="color: var(--text-secondary);">${
+                    <span style="color: var(--text-secondary);"> ${
                       data.count
                     } entrée${data.count > 1 ? "s" : ""}</span>
                     <span style="color: var(--text-muted);">${
