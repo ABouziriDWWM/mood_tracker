@@ -1392,6 +1392,8 @@ class MoodTracker {
       item.style.padding = "var(--spacing-sm)";
       item.style.borderRadius = "var(--radius-sm)";
       item.style.background = "rgba(255, 255, 255, 0.05)";
+      item.style.width = "100%";
+      item.style.boxSizing = "border-box";
 
       let emoji = "😐";
       if (average >= 6) emoji = "😍";
@@ -1403,13 +1405,13 @@ class MoodTracker {
       else emoji = "❓";
 
       item.innerHTML = `
-                <div style="display: flex; align-items: center; gap: var(--spacing-sm); width: 60%;">
+                <div class ="wrap-day" style="display: flex; gap: var(--spacing-sm);flex:1; min-width: 0;">
                     <span style="font-size: 1.2rem;">${emoji}</span>
                     <span style="color: var(--text-primary);">${day},  </span>
                     <span> Note: ${data.note || "rien"}</span>
                     
                 </div>
-                <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
+                <div style="display: flex; align-items: center; gap: var(--spacing-sm); flex-shrink:0;">
                     <span style="color: var(--text-secondary);"> ${
                       data.count
                     } entrée${data.count > 1 ? "s" : ""}</span>
