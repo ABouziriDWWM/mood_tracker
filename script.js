@@ -1186,7 +1186,10 @@ class MoodTracker {
     if (data.length === 0) {
       // Message si pas de données
       ctx.fillStyle = "var(--text-muted)";
-      ctx.font = "16px var(--font-family)";
+      // Taille de police responsive
+      let fontSize = 12;
+      if (width < 400) fontSize = 4;
+      ctx.font = `${fontSize}px var(--font-family)`;
       ctx.textAlign = "center";
       ctx.fillText("Aucune donnée disponible", width / 2, height / 2);
       return;
