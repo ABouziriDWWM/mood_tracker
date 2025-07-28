@@ -1065,6 +1065,44 @@ body {
   padding: var(--spacing-lg);
 }
 
+/* ...existing code... */
+.mood-calendar-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .mood-calendar-container {
+    max-width: 100%;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .mood-calendar-container {
+    padding: 0.5rem;
+    min-width: 0;
+  }
+  .calendar-header,
+  .calendar-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .calendar-grid {
+    grid-template-columns: repeat(7, 1fr);
+    font-size: 0.85rem;
+  }
+  .calendar-legend {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+  }
+}
+/* ...existing code... */
+
 .chart-header,
 .calendar-header {
   display: flex;
