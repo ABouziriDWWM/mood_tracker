@@ -1188,7 +1188,7 @@ class MoodTracker {
       ctx.fillStyle = "var(--text-muted)";
       // Taille de police responsive
       let fontSize = 12;
-      if (width < 400) fontSize = 4;
+      if (width < 450) fontSize = 4;
       ctx.font = `${fontSize}px var(--font-family)`;
       ctx.textAlign = "center";
       ctx.fillText("Aucune donnée disponible", width / 2, height / 2);
@@ -1272,7 +1272,7 @@ class MoodTracker {
 
     // Labels des axes
     ctx.fillStyle = "var(--text-muted)";
-    ctx.font = "12px var(--font-family)";
+    ctx.font = `${width < 450 ? 4 : 12}px var(--font-family)`;
     ctx.textAlign = "center";
 
     // Labels des dates
