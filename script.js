@@ -1275,15 +1275,23 @@ class MoodTracker {
     ctx.font = `${width < 450 ? 2 : 12}px var(--font-family)`;
     ctx.textAlign = "center";
 
-    // Labels des dates
+    // Labels des dates (affichage allégé sur mobile)
+    const showEvery = width < 500 ? Math.ceil(data.length / 5) : 1;
     data.forEach((point, index) => {
-      const x = padding + index * stepX;
       const date = new Date(point.date);
       const label = date.toLocaleDateString("fr-FR", {
         day: "2-digit",
         month: "2-digit",
       });
-      ctx.fillText(label, x, height - 10);
+      const x = padding + index * stepX;
+      // Affiche moins de labels si l'écran est petit
+      if (
+        showEvery === 1 ||
+        index % showEvery === 0 ||
+        index === data.length - 1
+      ) {
+        ctx.fillText(label, x, height - 10);
+      }
     });
   }
 
