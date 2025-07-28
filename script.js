@@ -1272,7 +1272,7 @@ class MoodTracker {
 
     // Labels des axes
     ctx.fillStyle = "var(--text-muted)";
-    ctx.font = `${width < 450 ? 4 : 12}px var(--font-family)`;
+    ctx.font = `${width < 450 ? 2 : 12}px var(--font-family)`;
     ctx.textAlign = "center";
 
     // Labels des dates
