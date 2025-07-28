@@ -1276,7 +1276,7 @@ class MoodTracker {
     ctx.textAlign = "center";
 
     // Labels des dates (affichage allégé sur mobile)
-    const showEvery = width < 500 ? Math.ceil(data.length / 5) : 1;
+    const showEvery = width < 500 ? Math.ceil(data.length / 3) : 1;
     data.forEach((point, index) => {
       const date = new Date(point.date);
       const label = date.toLocaleDateString("fr-FR", {
