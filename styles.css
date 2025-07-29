@@ -179,6 +179,8 @@ body {
 
 /* Page de connexion */
 .login-page {
+  overflow-y: auto;
+
   position: fixed;
   top: 0;
   left: 0;
@@ -192,9 +194,14 @@ body {
 }
 
 .login-container {
+  max-height: 100vh;
+  margin-top: 20vh;
+  margin-bottom: 10vh;
+  /* overflow-y: auto; */
   width: 100%;
   max-width: 450px;
   text-align: center;
+  padding-bottom: 2rem;
 }
 
 /* Logo de connexion */
@@ -241,11 +248,29 @@ body {
 }
 
 /* Cartes d'authentification */
+/* Dans styles.css */
+
 .auth-card {
-  padding: var(--spacing-2xl);
-  margin-bottom: var(--spacing-lg);
-  animation: fadeInUp 0.8s ease-out;
-  transition: var(--transition-normal);
+  /* Déjà présent : padding, animation, etc. */
+  width: 100%; /* Prend toute la largeur du conteneur parent */
+  max-width: 450px; /* Empêche le formulaire d'être trop large sur grand écran */
+  min-height: 500px; /* Hauteur minimale pour un bon affichage */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centre le contenu verticalement */
+  transition: all 0.3s ease-out; /* Transition douce pour les changements */
+}
+
+/* Pour les écrans plus petits (mobiles) */
+@media (max-width: 480px) {
+  .auth-card {
+    padding: var(--spacing-lg); /* Réduire le padding sur mobile */
+    min-height: auto; /* Laisser la hauteur s'adapter au contenu */
+  }
+
+  .auth-title {
+    font-size: var(--font-size-xl);
+  }
 }
 
 .auth-card:hover {
@@ -1673,6 +1698,45 @@ body {
 }
 
 /* Animations d'entrée pour les éléments de connexion */
+
+/* Dans styles.css */
+
+/* Animation pour le formulaire qui apparaît */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animation pour le formulaire qui disparaît */
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+}
+
+/* Appliquer l'animation */
+.auth-card.hidden {
+  /* On ne met plus display: none !important; directement */
+  /* On le fera après l'animation via JavaScript */
+  animation: slideOut 0.3s forwards;
+}
+
+#login-form,
+#register-form {
+  animation: slideIn 0.5s forwards;
+}
+
 @keyframes slideInFromRight {
   from {
     transform: translateX(100%);

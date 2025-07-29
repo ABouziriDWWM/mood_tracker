@@ -154,14 +154,31 @@ class AuthManager {
     });
   }
 
+  // Dans votre fichier script.js, modifiez les fonctions showRegisterForm/showLoginForm
+
   showRegisterForm() {
-    document.getElementById("login-form").classList.add("hidden");
-    document.getElementById("register-form").classList.remove("hidden");
+    const loginForm = document.getElementById("login-form");
+    const registerForm = document.getElementById("register-form");
+
+    loginForm.classList.add("hidden");
+    // Attendre la fin de l'animation avant de cacher complètement
+    setTimeout(() => {
+      loginForm.style.display = "none";
+      registerForm.style.display = "block";
+      registerForm.classList.remove("hidden");
+    }, 300); // 300ms correspond à la durée de l'animation
   }
 
   showLoginForm() {
-    document.getElementById("register-form").classList.add("hidden");
-    document.getElementById("login-form").classList.remove("hidden");
+    const loginForm = document.getElementById("login-form");
+    const registerForm = document.getElementById("register-form");
+
+    registerForm.classList.add("hidden");
+    setTimeout(() => {
+      registerForm.style.display = "none";
+      loginForm.style.display = "block";
+      loginForm.classList.remove("hidden");
+    }, 300);
   }
 
   async handleLogin() {
@@ -1419,7 +1436,7 @@ class MoodTracker {
                 <div class ="wrap-day" style="display: flex; gap: var(--spacing-sm);flex:1; min-width: 0;">
                     <span style="font-size: 1.2rem;">${emoji}</span>
                     <span style="color: var(--text-primary);">${day},  </span>
-                    <span> Note: ${data.note || "rien"}</span>
+                    <div> Note: ${data.note || "rien"}</div>
                     
                 </div>
                 <div style="display: flex; align-items: center; gap: var(--spacing-sm); flex-shrink:0;">
@@ -1668,3 +1685,41 @@ document.addEventListener("visibilitychange", () => {
     }
   }
 });
+
+// const { MongoClient } = require("mongodb");
+
+// const uri = "mongodb://localhost:27017"; // Adresse locale par défaut
+// const client = new MongoClient(uri);
+
+// async function main() {
+//   try {
+//     await client.connect();
+//     console.log("Connecté à MongoDB");
+
+//     const db = client.db("moodflow"); // Nom de la base
+//     const entries = db.collection("entries"); // Collection pour les humeurs
+
+//     // Exemple d'insertion d'une humeur
+//     const moodEntry = {
+//       userId: "user_123",
+//       date: new Date().toISOString().split("T")[0],
+//       mood: "happy",
+//       value: 5,
+//       note: "Bonne journée !",
+//       createdAt: new Date(),
+//     };
+
+//     const result = await entries.insertOne(moodEntry);
+//     console.log("Entrée insérée avec l'id :", result.insertedId);
+
+//     // Exemple de lecture
+//     const allEntries = await entries.find({ userId: "user_123" }).toArray();
+//     console.log("Entrées pour user_123 :", allEntries);
+//   } catch (err) {
+//     console.error(err);
+//   } finally {
+//     await client.close();
+//   }
+// }
+
+// main();
