@@ -71,6 +71,10 @@ body {
   min-height: 100vh;
 }
 
+//lien ajouté
+a:link{color: var(--primary-gradient);}
+a:active{color: var(--primary-gradient);}
+
 /* Arrière-plan animé avec formes géométriques */
 .animated-background {
   position: fixed;
