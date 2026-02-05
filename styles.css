@@ -90,7 +90,7 @@ body {
   animation: float 20s infinite linear;
 }
 
-a.link{color: --primary-gradient;}
+a.link{color: var(--primary-gradient);}
 
 .shape-1 {
   width: 100px;
