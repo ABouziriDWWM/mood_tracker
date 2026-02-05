@@ -91,7 +91,7 @@ body {
 }
 
 a:link{color: var(--primary-gradient);}
-
+a:active{color: var(--primary-gradient);}
 .shape-1 {
   width: 100px;
   height: 100px;
